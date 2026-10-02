@@ -1,8 +1,8 @@
 // CXPlayerController.cpp
 
-
-#include "CXPlayerController.h"
+#include "Player/CXPlayerController.h"
 #include "UI/CXChatInput.h"
+#include "Kismet/KismetSystemLibrary.h"
 
 void ACXPlayerController::BeginPlay()
 {
@@ -19,4 +19,16 @@ void ACXPlayerController::BeginPlay()
 			ChatInputWidgetInstance->AddToViewport();
 		}
 	}
+}
+
+void ACXPlayerController::SetChatMessageString(const FString& InChatMessageString)
+{
+	ChatMessageString = InChatMessageString;
+
+	PrintChatMessageString(ChatMessageString);
+}
+
+void ACXPlayerController::PrintChatMessageString(const FString& InChatMessageString)
+{
+	UKismetSystemLibrary::PrintString(this, ChatMessageString, true, true, FLinearColor::Red, 5.0f);
 }

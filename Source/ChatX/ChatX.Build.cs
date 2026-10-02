@@ -14,7 +14,7 @@ public class ChatX : ModuleRules
 			"Core", "CoreUObject", "Engine", "InputCore", "EnhancedInput",
 
             //UI
-            "UMG",
+            "UMG", "Slate", "SlateCore",
         });
 
         PrivateDependencyModuleNames.AddRange(new string[] { });

@@ -19,10 +19,16 @@ class CHATX_API ACXPlayerController : public APlayerController
 public:
 	virtual void BeginPlay() override;
 
+	void SetChatMessageString(const FString& InChatMessageString);
+
+	void PrintChatMessageString(const FString& InChatMessageString);
+
 protected:
 	UPROPERTY(EditDefaultsOnly)
 	TSubclassOf<UCXChatInput> ChatInputWidgetClass;
 
 	UPROPERTY()
 	TObjectPtr<UCXChatInput> ChatInputWidgetInstance;
+
+	FString ChatMessageString;
 };
